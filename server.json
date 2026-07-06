@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.matematicsolutions/us-eli-mcp",
+  "description": "MCP connector for US federal bills (Congress.gov) - verifiable citations, free API key",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/matematicsolutions/us-eli-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "us-eli-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

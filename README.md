@@ -1,5 +1,7 @@
 # us-eli-mcp
 
+<!-- mcp-name: io.github.matematicsolutions/us-eli-mcp -->
+
 MCP server for the Congress.gov API. Tracks the US federal legislative
 *process* - bills as they move through committees and floor votes.
 
