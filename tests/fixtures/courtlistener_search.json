@@ -1,0 +1,223 @@
+{
+    "results":  [
+                    {
+                        "absolute_url":  "/opinion/8512159/people-v-miranda-guerrero/",
+                        "attorney":  "",
+                        "caseName":  "People v. Miranda-Guerrero",
+                        "caseNameFull":  "",
+                        "citation":  [
+                                         "519 P.3d 1004",
+                                         "301 Cal. Rptr. 3d 15",
+                                         "14 Cal. 5th 1"
+                                     ],
+                        "citeCount":  35,
+                        "cluster_id":  8512159,
+                        "court":  "California Supreme Court",
+                        "court_citation_string":  "Cal.",
+                        "court_id":  "cal",
+                        "court_jurisdiction":  null,
+                        "dateArgued":  null,
+                        "dateFiled":  "2022-11-17",
+                        "dateReargued":  null,
+                        "dateReargumentDenied":  null,
+                        "docketNumber":  "S118147",
+                        "docket_id":  65762274,
+                        "judge":  "",
+                        "lexisCite":  "",
+                        "meta":  {
+                                     "timestamp":  "2025-11-13T19:49:18.525107Z",
+                                     "date_created":  "2022-11-17T18:01:24.475886Z",
+                                     "score":  {
+                                                   "bm25":  149.84352
+                                               }
+                                 },
+                        "neutralCite":  "",
+                        "non_participating_judge_ids":  [
+
+                                                        ],
+                        "opinions":  [
+                                         {
+                                             "author_id":  null,
+                                             "cites":  [
+                                                           1038643,
+                                                           1351576,
+                                                           1436322,
+                                                           1801669,
+                                                           1801755,
+                                                           1801948,
+                                                           2517324,
+                                                           2575950,
+                                                           2590164,
+                                                           2598797,
+                                                           2622102,
+                                                           2625630,
+                                                           2630816,
+                                                           2631915,
+                                                           2632408,
+                                                           2645829,
+                                                           3174771,
+                                                           4020410,
+                                                           4219782,
+                                                           4293668,
+                                                           4406525,
+                                                           4460408,
+                                                           4547848,
+                                                           4879041,
+                                                           5452211,
+                                                           5452351,
+                                                           9422583,
+                                                           9423233,
+                                                           9423651,
+                                                           9427279,
+                                                           9427635,
+                                                           9428478,
+                                                           9430748,
+                                                           9431819,
+                                                           9433986,
+                                                           9434891,
+                                                           9527671,
+                                                           9547712,
+                                                           9558788,
+                                                           9609905,
+                                                           9782311,
+                                                           9787381,
+                                                           9835457
+                                                       ],
+                                             "download_url":  "http://www.courts.ca.gov/opinions/documents/S118147.PDF",
+                                             "id":  8484574,
+                                             "joined_by_ids":  [
+
+                                                               ],
+                                             "local_path":  "pdf/2022/11/17/people_v._miranda-guerrero.pdf",
+                                             "meta":  {
+                                                          "timestamp":  "2025-11-28T04:34:49.421006Z",
+                                                          "date_created":  "2022-11-17T18:01:24.480034Z"
+                                                      },
+                                             "ordering_key":  null,
+                                             "per_curiam":  false,
+                                             "sha1":  "80f5e8c489590db89bcffa3585ece6d26788e7e9",
+                                             "snippet":  "        IN THE SUPREME COURT OF\n               CALIFORNIA\n\n                       THE PEOPLE,\n                  Plaintiff and Respondent,\n                           v.\n            VICTOR M. MIRANDA-GUERRERO,\n                Defendant and Appellant.\n\n                           S118147\n\n                Orange County Superior Court\n                         00WF1146\n\n\n\n                      November 17, 2022\n\nJustice Liu authored the opinion of the Court, in which Chief\nJustice Cantil-Sakauye and Ju",
+                                             "type":  "combined-opinion"
+                                         }
+                                     ],
+                        "panel_ids":  [
+
+                                      ],
+                        "panel_names":  [
+
+                                        ],
+                        "posture":  "",
+                        "procedural_history":  "",
+                        "scdb_id":  "",
+                        "sibling_ids":  [
+                                            8484574
+                                        ],
+                        "source":  "C",
+                        "status":  "Published",
+                        "suitNature":  "",
+                        "syllabus":  ""
+                    },
+                    {
+                        "absolute_url":  "/opinion/2567623/in-re-miranda/",
+                        "attorney":  "Counsel, Kerry R. Bensinger, George R. Hedges and David Pettit, under appointments by the Supreme Court, for Petitioner Adam Miranda., Daniel E. Lungren, Bill Lockyer and Edmund G. Brown, Jr., Attorneys General, George Williamson and David P. Druliner, Chief Assistant Attorneys General, Carol Wendelin Pollack, Assistant Attorney General, Sanjay T. Kumar, Robert S. Henry, Frederick Grab, Pamela C. Hamanaka, Susan Lee Frierson, Donald E. de Nicola, James William Bilderback II, Michael A. Katz and J. Michael Lehmann, Deputy Attorneys General, for Respondent State of California.",
+                        "caseName":  "In Re Miranda",
+                        "caseNameFull":  "In Re ADAM MIRANDA on Habeas Corpus",
+                        "citation":  [
+                                         "182 P.3d 513",
+                                         "76 Cal. Rptr. 3d 172",
+                                         "43 Cal. 4th 541",
+                                         "2008 Cal. LEXIS 4819"
+                                     ],
+                        "citeCount":  19,
+                        "cluster_id":  2567623,
+                        "court":  "California Supreme Court",
+                        "court_citation_string":  "Cal.",
+                        "court_id":  "cal",
+                        "court_jurisdiction":  null,
+                        "dateArgued":  null,
+                        "dateFiled":  "2008-05-05",
+                        "dateReargued":  null,
+                        "dateReargumentDenied":  null,
+                        "docketNumber":  "S058528, S060781",
+                        "docket_id":  2433324,
+                        "judge":  "Werdegar",
+                        "lexisCite":  "",
+                        "meta":  {
+                                     "timestamp":  "2024-06-21T13:01:59.299799Z",
+                                     "date_created":  "2015-07-30T19:37:16.256655Z",
+                                     "score":  {
+                                                   "bm25":  112.23264
+                                               }
+                                 },
+                        "neutralCite":  "",
+                        "non_participating_judge_ids":  [
+
+                                                        ],
+                        "opinions":  [
+                                         {
+                                             "author_id":  3862,
+                                             "cites":  [
+                                                           106598,
+                                                           109506,
+                                                           111514,
+                                                           117923,
+                                                           117975,
+                                                           121166,
+                                                           692307,
+                                                           719805,
+                                                           782882,
+                                                           1160194,
+                                                           1163343,
+                                                           1168691,
+                                                           1176768,
+                                                           1275419,
+                                                           1393905,
+                                                           1394991,
+                                                           1402261,
+                                                           1444734,
+                                                           2298192,
+                                                           2517672,
+                                                           2567696,
+                                                           2586281,
+                                                           2599941,
+                                                           2639151
+                                                       ],
+                                             "download_url":  null,
+                                             "id":  2567623,
+                                             "joined_by_ids":  [
+
+                                                               ],
+                                             "local_path":  null,
+                                             "meta":  {
+                                                          "timestamp":  "2025-10-24T20:46:10.652828Z",
+                                                          "date_created":  "2013-10-30T10:28:00.455418Z"
+                                                      },
+                                             "ordering_key":  null,
+                                             "per_curiam":  false,
+                                             "sha1":  "9f4c20c071a628f2f217728e07b3257c772091ed",
+                                             "snippet":  "\n76 Cal.Rptr.3d 172 (2008)\n43 Cal.4th 541\n182 P.3d 513\nIn re Adam MIRANDA on Habeas Corpus.\nNos. S058528, S060781.\nSupreme Court of California.\nMay 5, 2008.\n*178 Kerry R. Bensinger, Pasadena, George R. Hedges and David Pettit, Los Angeles, under appointments by the Supreme Court, for Petitio",
+                                             "type":  "combined-opinion"
+                                         }
+                                     ],
+                        "panel_ids":  [
+
+                                      ],
+                        "panel_names":  [
+
+                                        ],
+                        "posture":  "",
+                        "procedural_history":  "",
+                        "scdb_id":  "",
+                        "sibling_ids":  [
+                                            2567623
+                                        ],
+                        "source":  "LU",
+                        "status":  "Published",
+                        "suitNature":  "",
+                        "syllabus":  ""
+                    }
+                ],
+    "next":  "https://www.courtlistener.com/api/rest/v4/search/?court=cal\u0026cursor=cz00LjgwODYzNzYmcz0yMjczMjgyJnQ9byZkPTIwMjYtMDctMDcmcD0y\u0026q=miranda\u0026type=o",
+    "count":  779,
+    "previous":  null
+}

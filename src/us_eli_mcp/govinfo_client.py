@@ -28,7 +28,7 @@ from .cache import HttpCache
 
 DEFAULT_GOVINFO_BASE_URL = "https://api.govinfo.gov"
 DEFAULT_TIMEOUT = httpx.Timeout(40.0, connect=10.0)
-USER_AGENT = "us-eli-mcp/0.2.0 (+https://github.com/matematicsolutions/us-eli-mcp)"
+USER_AGENT = "us-eli-mcp/0.3.0 (+https://github.com/matematicsolutions/us-eli-mcp)"
 
 _RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
 _MAX_ATTEMPTS = 3
@@ -40,7 +40,10 @@ DEFAULT_START_DATE = "1900-01-01T00:00:00Z"
 
 
 class GovInfoClient:
-    """Async client for the GovInfo API. Use as ``async with GovInfoClient(api_key=...) as c: ...``."""
+    """Async client for the GovInfo API.
+
+    Use as ``async with GovInfoClient(api_key=...) as c: ...``.
+    """
 
     def __init__(
         self,

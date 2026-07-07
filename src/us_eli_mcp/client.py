@@ -14,7 +14,7 @@ from .cache import HttpCache
 
 DEFAULT_BASE_URL = "https://api.congress.gov/v3"
 DEFAULT_TIMEOUT = httpx.Timeout(40.0, connect=10.0)
-USER_AGENT = "us-eli-mcp/0.2.0 (+https://github.com/matematicsolutions/us-eli-mcp)"
+USER_AGENT = "us-eli-mcp/0.3.0 (+https://github.com/matematicsolutions/us-eli-mcp)"
 
 _RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
 _MAX_ATTEMPTS = 3

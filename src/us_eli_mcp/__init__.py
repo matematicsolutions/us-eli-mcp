@@ -1,3 +1,4 @@
-"""us-eli-mcp - MCP connector for the US federal legislative process (Congress.gov) and enacted law text (GovInfo)."""
+"""us-eli-mcp - MCP connector for US law: bills (Congress.gov), enacted law text
+(GovInfo), the Federal Register, case law (CourtListener) and the eCFR."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "us-eli-mcp"
-version = "0.2.0"
-description = "MCP server for US federal bills (Congress.gov) and US case law (CourtListener) with verifiable citations."
+version = "0.3.0"
+description = "MCP server for US law: bills (Congress.gov), US Code (GovInfo), Federal Register, case law (CourtListener), eCFR - with verifiable citations."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
