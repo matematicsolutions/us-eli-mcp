@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "generated_note": "Volatile runtime config for us-eli-mcp. Edit + re-run the release workflow to repoint endpoints or bump the citation grammar WITHOUT a PyPI release. Consumed lazily on first tool call; falls back to the hardcoded defaults in the client modules if unavailable (offline-safe).",
+  "base_urls": {
+    "eli": "https://api.congress.gov/v3",
+    "eli_govinfo": "https://api.govinfo.gov",
+    "eli_fr": "https://www.federalregister.gov/api/v1",
+    "eli_courtlistener": "https://www.courtlistener.com/api/rest/v4",
+    "eli_ecfr": "https://www.ecfr.gov/api"
+  },
+  "citation_grammar_version": "us-eli/2026.07"
+}

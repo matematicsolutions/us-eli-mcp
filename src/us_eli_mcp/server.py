@@ -36,6 +36,7 @@ import httpx
 from fastmcp import FastMCP
 from mcp.types import ToolAnnotations
 
+from . import runtime
 from .audit import AuditLogger, hash_input, timer
 from .citations import (
     build_case_law_citation,
@@ -129,7 +130,7 @@ _VALID_TYPES = frozenset({"hr", "s", "hres", "sres", "hjres", "sjres", "hconres"
 
 
 def _base_url() -> str:
-    return os.environ.get("US_ELI_BASE_URL", DEFAULT_BASE_URL).rstrip("/")
+    return os.environ.get("US_ELI_BASE_URL", runtime.base_url("eli", DEFAULT_BASE_URL)).rstrip("/")
 
 
 def _api_key() -> str:
@@ -137,7 +138,7 @@ def _api_key() -> str:
 
 
 def _govinfo_base_url() -> str:
-    return os.environ.get("US_ELI_GOVINFO_BASE_URL", DEFAULT_GOVINFO_BASE_URL).rstrip("/")
+    return os.environ.get("US_ELI_GOVINFO_BASE_URL", runtime.base_url("eli_govinfo", DEFAULT_GOVINFO_BASE_URL)).rstrip("/")
 
 
 def _govinfo_api_key() -> str:
@@ -145,15 +146,15 @@ def _govinfo_api_key() -> str:
 
 
 def _fr_base_url() -> str:
-    return os.environ.get("US_ELI_FR_BASE_URL", DEFAULT_FR_BASE_URL).rstrip("/")
+    return os.environ.get("US_ELI_FR_BASE_URL", runtime.base_url("eli_fr", DEFAULT_FR_BASE_URL)).rstrip("/")
 
 
 def _courtlistener_base_url() -> str:
-    return os.environ.get("US_ELI_COURTLISTENER_BASE_URL", DEFAULT_COURTLISTENER_BASE_URL).rstrip("/")
+    return os.environ.get("US_ELI_COURTLISTENER_BASE_URL", runtime.base_url("eli_courtlistener", DEFAULT_COURTLISTENER_BASE_URL)).rstrip("/")
 
 
 def _ecfr_base_url() -> str:
-    return os.environ.get("US_ELI_ECFR_BASE_URL", DEFAULT_ECFR_BASE_URL).rstrip("/")
+    return os.environ.get("US_ELI_ECFR_BASE_URL", runtime.base_url("eli_ecfr", DEFAULT_ECFR_BASE_URL)).rstrip("/")
 
 
 def _audit() -> AuditLogger:
