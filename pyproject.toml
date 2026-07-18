@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "us-eli-mcp"
-version = "0.3.1"
+version = "0.4.0"
 description = "MCP server for US law: bills (Congress.gov), US Code (GovInfo), Federal Register, case law (CourtListener), eCFR - with verifiable citations."
 readme = "README.md"
 license = { text = "Apache-2.0" }
