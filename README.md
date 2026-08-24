@@ -44,6 +44,7 @@ read-only tools:
 | `us_get_case` | One opinion cluster by `cluster_id` |
 | `us_search_cfr_sections` | Full-text search over the current CFR (eCFR) |
 | `us_get_cfr_section_history` | Amendment history of one CFR section (e.g. 15 CFR 744.3) |
+| `us_coverage` | Declare what this connector covers, when each family was captured, and - explicitly - what it does NOT cover. Every gap carries a fallback. |
 
 Every response carries `lex_uri` (a resolvable API URL), `human_readable_citation`
 (the official convention: `"H.R. 1, 118th Congress"`, `"91 FR 41591"`,
