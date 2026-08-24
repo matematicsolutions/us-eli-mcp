@@ -81,6 +81,7 @@ This MCP server exposes five US legal sources: the Congress.gov API (federal leg
 
 ## Hard constraints
 
+- **Do not answer past the edge of this corpus** - when a search comes back empty, or the question touches material this connector does not carry, call `us_coverage` and relay what it says is missing. Absence here is not absence in the law.
 - **No free-text keyword search for bills** - the Congress.gov API filters by congress/type/number, not keywords. Use `us_search_bills` to discover candidate `number`s.
 - **Case-law rate limit** - the CourtListener search endpoint is anonymous and rate-limited to ~5 requests/min. Batch your questions; do not loop over it.
 - **Federal case law nuance** - `us_search_case_law` covers federal courts too, but for federal ENACTED law prefer the GovInfo/Federal Register tools; dedicated CourtListener MCP wrappers exist for heavy federal case-law work.
