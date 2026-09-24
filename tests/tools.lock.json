@@ -1,0 +1,570 @@
+{
+  "package_version": "0.5.3",
+  "tools": {
+    "us_coverage": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Declare what this connector covers, how it is sourced, and what it does NOT cover.\n\nCall this before telling a user that the law \"does not contain\" something, and whenever\na search comes back empty: the absence may be a gap in this connector rather than in the\nlaw. Every gap carries a fallback saying where to look instead.\n\nReturns:\n    ``Coverage`` with families, an as-of note, and a non-empty list of known gaps.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_coverage",
+        "outputSchema": {
+          "additionalProperties": true,
+          "description": "What this connector covers, how it is sourced, and what it does not cover.",
+          "properties": {
+            "as_of_note": {
+              "description": "States what the dates mean, and what they do not promise.",
+              "type": "string"
+            },
+            "families": {
+              "items": {
+                "additionalProperties": true,
+                "description": "One data family this connector exposes.",
+                "properties": {
+                  "captured_at": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Date this family was last captured (ISO). None when queried live."
+                  },
+                  "live": {
+                    "default": true,
+                    "description": "True when queried live instead of from a snapshot.",
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "description": "Data family, e.g. 'Federal legislation'.",
+                    "type": "string"
+                  },
+                  "source": {
+                    "description": "Official source the data comes from.",
+                    "type": "string"
+                  },
+                  "tool": {
+                    "description": "Tool or tools that reach this family.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "tool",
+                  "source"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "known_gaps": {
+              "description": "Never empty. An empty list would mean 'not checked', not 'no gaps'.",
+              "items": {
+                "additionalProperties": true,
+                "description": "A known, named hole in this connector's coverage - plus the way around it.",
+                "properties": {
+                  "fallback": {
+                    "description": "Where to go instead.",
+                    "type": "string"
+                  },
+                  "family": {
+                    "description": "Which family the gap belongs to.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Stable gap identifier.",
+                    "type": "string"
+                  },
+                  "missing": {
+                    "description": "What is NOT available through this connector.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "family",
+                  "missing",
+                  "fallback"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "status": {
+              "default": "ok",
+              "enum": [
+                "ok",
+                "degraded",
+                "failed"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "as_of_note"
+          ],
+          "type": "object"
+        }
+      },
+      "sha256": "155cc94dacf77e4088de73cd1559eefd40827673d07d7472f455d2918303a40e"
+    },
+    "us_get_bill": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch full detail (including latest action/status) for one bill.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "bill_type": {
+              "description": "e.g. ``\"hr\"``.",
+              "type": "string"
+            },
+            "congress": {
+              "description": "e.g. ``118``.",
+              "type": "integer"
+            },
+            "number": {
+              "description": "bill number, e.g. ``1``.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "congress",
+            "bill_type",
+            "number"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_get_bill",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "2068ac49949c23c06cebc7902132323f02602c59052a61b0d44ab53a3daa0196"
+    },
+    "us_get_case": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch one opinion cluster by its CourtListener ``cluster_id``.\n\nUses the keyless search endpoint with a ``cluster_id:{id}`` field query\n(the authenticated ``/clusters/{id}/`` endpoint is deliberately not used).",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "cluster_id": {
+              "description": "e.g. ``8512159`` - take it from `us_search_case_law`.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cluster_id"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_get_case",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "7a26eff38022e55b719a00a8013280ec4a171f288e712299e17ee674ad60da93"
+    },
+    "us_get_cfr_section_history": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch the amendment history (point-in-time versions) of one CFR section.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "part": {
+              "description": "part identifier, e.g. ``\"744\"``.",
+              "type": "string"
+            },
+            "section": {
+              "description": "section identifier, e.g. ``\"744.3\"`` - take title/part/section\nfrom `us_search_cfr_sections`.",
+              "type": "string"
+            },
+            "title": {
+              "description": "CFR title number, e.g. ``15``.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "title",
+            "part",
+            "section"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_get_cfr_section_history",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "2d169efda2934b086a4d6a083f390a4510ac356e79afe864c1b5224e69b888a7"
+    },
+    "us_get_code_package": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch metadata and content-format download links for one GovInfo package.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "package_id": {
+              "description": "a GovInfo package id, e.g. ``\"USCODE-2023-title50\"`` or a\nFederal Register document id - take these from `us_list_code_packages`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "package_id"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_get_code_package",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "3a7f16542bec34897ddbb0d876f97cda16fa5805a7a6ab00db4c08feee92e9bb"
+    },
+    "us_get_federal_register_doc": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Fetch full metadata for one Federal Register document.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "document_number": {
+              "description": "an FR document number, e.g. ``\"2026-13726\"`` - take it\nfrom `us_search_federal_register`.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "document_number"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_get_federal_register_doc",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "7edeb9113e771677d676712ce31fb6eee04b50b4921a8c1cdba431be21c708a5"
+    },
+    "us_list_code_packages": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "List enacted-law packages in a GovInfo collection modified since a given date.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "collection": {
+              "description": "a GovInfo collection code, e.g. ``\"USCODE\"`` (United States Code),\n``\"CFR\"`` (Code of Federal Regulations), ``\"FR\"`` (Federal Register),\n``\"STATUTE\"`` (Statutes at Large).",
+              "type": "string"
+            },
+            "limit": {
+              "default": 20,
+              "description": "max results (default 20).",
+              "type": "integer"
+            },
+            "start_date": {
+              "default": "1900-01-01T00:00:00Z",
+              "description": "ISO 8601 UTC timestamp (e.g. ``\"2023-01-01T00:00:00Z\"``); only\npackages modified on/after this date are returned.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "collection"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_list_code_packages",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "08a9c620dea93c34149835876bd2098a790c75419a1b27bb58c81227a3583c0c"
+    },
+    "us_search_bills": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "List US federal bills of a given congress and bill type.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "bill_type": {
+              "description": "one of ``\"hr\"``, ``\"s\"``, ``\"hres\"``, ``\"sres\"``, ``\"hjres\"``,\n``\"sjres\"``, ``\"hconres\"``, ``\"sconres\"``.",
+              "type": "string"
+            },
+            "congress": {
+              "description": "e.g. ``118`` (2023-2024 session).",
+              "type": "integer"
+            },
+            "limit": {
+              "default": 20,
+              "description": "max results (default 20, API caps around 250).",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "congress",
+            "bill_type"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_search_bills",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "e8d3db44db98caebb5d84082fd3d1c2f7560911c799d3506e18233c04e1e2904"
+    },
+    "us_search_case_law": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Full-text search over 8M+ US court opinions (CourtListener, keyless).\n\nThe headline value is STATE case law - no other tool in this server covers\nstate courts. Federal courts are searchable too, but dedicated\nCourtListener MCP wrappers exist for heavy federal case-law work.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "court": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional CourtListener court id to scope the search, e.g.\n``\"cal\"`` (California Supreme Court), ``\"ny\"`` (NY Court of\nAppeals), ``\"texapp\"`` (Texas Court of Appeals), ``\"scotus\"``."
+            },
+            "limit": {
+              "default": 20,
+              "description": "max results (default 20; the API returns 20 per page).",
+              "type": "integer"
+            },
+            "query": {
+              "description": "full-text query, e.g. ``\"negligence standard of care\"``.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_search_case_law",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "c25d6090233a095a5ebddb339a978a2cae58c8716f1852757c2f620f864a1831"
+    },
+    "us_search_cfr_sections": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Full-text search over the CURRENT Code of Federal Regulations (eCFR, keyless).\n\nUnlike the GovInfo ``CFR`` collection (annual-edition snapshots), the eCFR\nis amended through days ago and every hit carries the exact CFR hierarchy\n(title/part/section) plus an excerpt.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "limit": {
+              "default": 20,
+              "description": "max results (default 20).",
+              "type": "integer"
+            },
+            "query": {
+              "description": "full-text query, e.g. ``\"unmanned aircraft\"``.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_search_cfr_sections",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "59852e34a65d21a6e8a40db54673d24604bccb775b392716078ffbc63aa6a27a"
+    },
+    "us_search_federal_register": {
+      "descriptor": {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true
+        },
+        "description": "Full-text search over Federal Register documents (1994-present, keyless).",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "doc_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional filter - one of ``\"RULE\"``, ``\"PRORULE\"`` (proposed rule),\n``\"NOTICE\"``, ``\"PRESDOCU\"`` (presidential document)."
+            },
+            "limit": {
+              "default": 20,
+              "description": "max results (default 20).",
+              "type": "integer"
+            },
+            "presidential_document_type": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "optional filter for presidential documents -\ne.g. ``\"executive_order\"``, ``\"proclamation\"``, ``\"memorandum\"``."
+            },
+            "term": {
+              "description": "full-text search query, e.g. ``\"artificial intelligence\"``.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "term"
+          ],
+          "type": "object"
+        },
+        "meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "name": "us_search_federal_register",
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "sha256": "349dd840805545707d42ca59d91f8dd510f10e3fa34bad744348cbe5e90c181e"
+    }
+  },
+  "toolset_sha256": "ae8bd7f583b6a9622bd9bfd68d01a9ad1b1c7fcc7d5a0bb67de50bed233eb223"
+}
