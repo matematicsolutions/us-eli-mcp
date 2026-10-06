@@ -1,0 +1,41 @@
+{
+  "name": "us-eli-mcp",
+  "description": "US federal law with verifiable citations: bills from Congress.gov, US Code and other packages from GovInfo, Federal Register documents, eCFR sections and their history, and case law from CourtListener (Free Law Project). Every answer carries the official source and identifier, so a citation can be checked instead of trusted. Queries go only to these public sources; nothing goes to MateMatic.",
+  "version": "0.5.3",
+  "author": {
+    "name": "Wieslaw Mazur / MateMatic Solutions"
+  },
+  "homepage": "https://matematicsolutions.com/en/boutique/connectors",
+  "repository": "https://github.com/matematicsolutions/us-eli-mcp",
+  "documentationUrl": "https://github.com/matematicsolutions/us-eli-mcp/tree/main/plugin#readme",
+  "supportUrl": "https://github.com/matematicsolutions/us-eli-mcp/issues",
+  "privacyPolicyUrl": "https://github.com/matematicsolutions/us-eli-mcp/tree/main/plugin#data",
+  "termsOfServiceUrl": "https://github.com/matematicsolutions/us-eli-mcp/blob/main/LICENSE",
+  "license": "Apache-2.0",
+  "keywords": [
+    "legal",
+    "united-states",
+    "us",
+    "law",
+    "legislation",
+    "case-law",
+    "regulations",
+    "citations",
+    "mcp"
+  ],
+  "mcpServers": {
+    "us-eli-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--frozen",
+        "--project",
+        "${CLAUDE_PLUGIN_ROOT}/server",
+        "us-eli-mcp"
+      ],
+      "env": {
+        "US_ELI_RUNTIME_URL": ""
+      }
+    }
+  }
+}

@@ -55,6 +55,16 @@ docket number is used instead.
 
 ## Install
 
+As a Claude plugin (Claude Code or the desktop app, needs [uv](https://docs.astral.sh/uv/));
+see [plugin/README.md](plugin/README.md) for what it sends and stores:
+
+```
+/plugin marketplace add matematicsolutions/us-eli-mcp
+/plugin install us-eli-mcp@us-eli-mcp
+```
+
+As a standalone server:
+
 ```bash
 pip install us-eli-mcp
 ```
@@ -97,6 +107,12 @@ without reinstalling Windows.
 | `US_ELI_ECFR_BASE_URL` | `https://www.ecfr.gov/api` (keyless) |
 
 The Federal Register, CourtListener and eCFR tools need no key at all.
+
+Network: the server talks to the five sources above and the local filesystem. Once, on first
+use, it also fetches a small configuration file (`us-runtime.json.gz`, updated source
+addresses) from this repository's GitHub Releases. That request carries no query content;
+GitHub's download counter for the file is the only usage signal we see. `US_ELI_RUNTIME_URL=""`
+turns it off; the Claude plugin ships with it off. No LLM provider, no other telemetry.
 
 ## License
 
